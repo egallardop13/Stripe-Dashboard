@@ -175,10 +175,7 @@ const Dashboard = () => {
         }
       >
         {/* The page content */}
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed obcaecati
-        beatae adipisci nihil quasi voluptate, est, sequi qui voluptas ad
-        doloremque nemo, aliquam ipsum reiciendis facere assumenda quo. Quidem,
-        est?
+        this is Dashboard
       </SidebarLayout>
     </>
   );

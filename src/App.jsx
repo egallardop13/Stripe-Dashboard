@@ -1,10 +1,11 @@
 import React from "react";
-import SidebarComponent from "./components/SidebarComponent";
+// import SidebarComponent from "./components/SidebarComponent";
+import Dashboard from "./components/Dashboard";
 
 const App = () => {
   return (
     <div>
-      <SidebarComponent />
+      <Dashboard />
     </div>
   );
 };
