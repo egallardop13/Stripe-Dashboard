@@ -1,3 +1,4 @@
+import { Outlet } from "react-router-dom";
 import { Avatar } from "./ui/avatar";
 import {
   Dropdown,
@@ -41,6 +42,7 @@ import {
   Square2StackIcon,
   TicketIcon,
 } from "@heroicons/react/20/solid";
+import Search from "./Search";
 
 const Dashboard = () => {
   return (
@@ -90,29 +92,25 @@ const Dashboard = () => {
         }
         sidebar={
           <Sidebar>
-            <SidebarHeader>
+            {/* <SidebarHeader>
               <SidebarSection className="max-lg:hidden">
                 <SidebarItem href="/search">
                   <MagnifyingGlassIcon />
                   <SidebarLabel>Search</SidebarLabel>
                 </SidebarItem>
-                <SidebarItem href="/inbox">
-                  <InboxIcon />
-                  <SidebarLabel>Inbox</SidebarLabel>
-                </SidebarItem>
               </SidebarSection>
-            </SidebarHeader>
+            </SidebarHeader> */}
             <SidebarBody>
               <SidebarSection>
                 <SidebarItem href="/">
                   <HomeIcon />
                   <SidebarLabel>Home</SidebarLabel>
                 </SidebarItem>
-                <SidebarItem href="/events">
+                <SidebarItem href="/customers">
                   <Square2StackIcon />
                   <SidebarLabel>Customers</SidebarLabel>
                 </SidebarItem>
-                <SidebarItem href="/orders">
+                <SidebarItem href="/invoices">
                   <TicketIcon />
                   <SidebarLabel>Invoices</SidebarLabel>
                 </SidebarItem>
@@ -175,7 +173,8 @@ const Dashboard = () => {
         }
       >
         {/* The page content */}
-        this is Dashboard
+        <Search />
+        <Outlet />
       </SidebarLayout>
     </>
   );
