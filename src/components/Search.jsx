@@ -1,4 +1,3 @@
-import { MagnifyingGlass } from "@heroicons/react/16/solid";
 import { Field, Label } from "./ui/fieldset";
 import { Input } from "./ui/input";
 

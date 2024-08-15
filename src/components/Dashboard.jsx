@@ -1,4 +1,5 @@
 import { Outlet } from "react-router-dom";
+import { Divider } from "./ui/divider";
 import { Avatar } from "./ui/avatar";
 import {
   Dropdown,
@@ -8,7 +9,13 @@ import {
   DropdownLabel,
   DropdownMenu,
 } from "./ui/dropdown";
-import { Navbar, NavbarItem, NavbarSection, NavbarSpacer } from "./ui/navbar";
+import {
+  Navbar,
+  NavbarDivider,
+  NavbarItem,
+  NavbarSection,
+  NavbarSpacer,
+} from "./ui/navbar";
 import {
   Sidebar,
   SidebarBody,
@@ -34,6 +41,8 @@ import {
 import {
   Cog6ToothIcon,
   HomeIcon,
+  CircleStackIcon,
+  UsersIcon,
   InboxIcon,
   MagnifyingGlassIcon,
   MegaphoneIcon,
@@ -107,12 +116,16 @@ const Dashboard = () => {
                   <SidebarLabel>Home</SidebarLabel>
                 </SidebarItem>
                 <SidebarItem href="/customers">
-                  <Square2StackIcon />
+                  <UsersIcon />
                   <SidebarLabel>Customers</SidebarLabel>
                 </SidebarItem>
                 <SidebarItem href="/invoices">
                   <TicketIcon />
                   <SidebarLabel>Invoices</SidebarLabel>
+                </SidebarItem>
+                <SidebarItem href="/products">
+                  <CircleStackIcon />
+                  <SidebarLabel>Products</SidebarLabel>
                 </SidebarItem>
                 <SidebarItem href="/settings">
                   <Cog6ToothIcon />
@@ -173,8 +186,12 @@ const Dashboard = () => {
         }
       >
         {/* The page content */}
-        <Search />
-        <Outlet />
+        <div className="w-[100%] ">
+          <Search />
+          <SidebarSpacer />
+          <Divider />
+          <Outlet />
+        </div>
       </SidebarLayout>
     </>
   );
