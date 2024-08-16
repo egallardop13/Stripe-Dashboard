@@ -9,7 +9,32 @@ import {
 } from "./ui/table";
 import { Tab } from "@headlessui/react";
 
-function TableComponent({ users, headers, keys }) {
+/**
+  Configuration for tables:
+  users string[]
+  headers string[]
+  keys [] strings
+   
+  objectKeys = object whose properties are arrays
+
+  
+  
+  
+  
+  */
+
+function TableComponent({ users, headers, keys, objectKeys }) {
+  let tempKeys;
+  const getInfo = (customer, property) => {
+    let info = customer[property];
+    objectKeys.map((item) => {
+      if (item[property]) {
+        info = info[item[property]];
+      }
+    });
+    return info;
+  };
+
   return (
     <Table striped>
       <TableHead>
@@ -23,14 +48,12 @@ function TableComponent({ users, headers, keys }) {
       <TableBody>
         {/* {users.map((customer) => (
           <TableRow key={customer.id}>
-            <TableCell className="font-medium">{customer.}</TableCell>
+            <TableCell className="font-medium">{customer.name}</TableCell>
             <TableCell>{customer.email}</TableCell>
             <TableCell>{customer.default_source}</TableCell>
             <TableCell className="text-zinc-500">{customer.created}</TableCell>
           </TableRow>
         ))} */}
-        {console.log(users[0].prices[0].unit_amount)}
-        {console.log(keys)}
 
         {users.map((customer) => (
           <TableRow key={customer.id}>
@@ -45,7 +68,15 @@ function TableComponent({ users, headers, keys }) {
                     : ""
                 }
               >
-                {customer[key]}
+                {typeof customer[key] === "object" ? (
+                  <>
+                    {/* {tempKeys = split(key, ".")} */}
+                    {/* ["price", "unit_amount"] */}
+                    {getInfo(customer, key)}
+                  </>
+                ) : (
+                  customer[key]
+                )}
               </TableCell>
             ))}
           </TableRow>

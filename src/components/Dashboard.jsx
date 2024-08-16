@@ -186,12 +186,11 @@ const Dashboard = () => {
         }
       >
         {/* The page content */}
-        <div className="w-[100%] ">
-          <Search />
-          <SidebarSpacer />
-          <Divider />
-          <Outlet />
-        </div>
+
+        <Search />
+        <SidebarSpacer />
+        <Divider />
+        <Outlet />
       </SidebarLayout>
     </>
   );
